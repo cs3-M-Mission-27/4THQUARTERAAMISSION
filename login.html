@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/css/ionicons.min.css">
+    <title>Environmental Login - EcoPolicy</title>
+</head>
+<body>
+    <div class="container">
+        <div id="videoContainer">
+            <video autoplay muted loop>
+                <source src="login.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <section>
+            <form id="loginForm">
+                <h1>Environmental Login</h1>
+                <p>Login to connect with our environmental policy initiatives.</p>
+                <div class="inputbox">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input id="username" type="text" required>
+                    <label for="username">Username or Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input id="password" type="password" required>
+                    <label for="password">Password</label>
+                    <ion-icon name="eye-outline" id="togglePassword"></ion-icon>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input id="confirmPassword" type="password" required>
+                    <label for="confirmPassword">Confirm Password</label>
+                </div>
+                <div class="forget">
+                    <label for="remember"><input id="remember" type="checkbox">Remember me</label>
+                </div>
+                <button type="submit">Login!</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

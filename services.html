@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - EcoPolicies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+      <section class="projects" id="projects">
+            <h1 class="heading"> <i class="fas fa-quote-left"></i> our services <i class="fas fa-quote-right"></i></h1>
+            <div class="box-container">
+                <div class="thumbnail">
+                    <img src="service5.png" alt="">
+                    <div class="icons">
+                        <a href="#" style="--i:1" class="fas fa-heart"></a>
+                        <a href="#" style="--i:2" class="fas fa-share"></a>
+                        <a href="#" style="--i:3" class="fas fa-comment"></a>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <img src="service7.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" style="--i:1" class="fas fa-heart"></a>
+                        <a href="#" style="--i:2" class="fas fa-share"></a>
+                        <a href="#" style="--i:3" class="fas fa-comment"></a>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <img src="service1.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" style="--i:1" class="fas fa-heart"></a>
+                        <a href="#" style="--i:2" class="fas fa-share"></a>
+                        <a href="#" style="--i:3" class="fas fa-comment"></a>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <img src="service2.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" style="--i:1" class="fas fa-heart"></a>
+                        <a href="#" style="--i:2" class="fas fa-share"></a>
+                        <a href="#" style="--i:3" class="fas fa-comment"></a>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <img src="service3.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" style="--i:1" class="fas fa-heart"></a>
+                        <a href="#" style="--i:2" class="fas fa-share"></a>
+                        <a href="#" style="--i:3" class="fas fa-comment"></a>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <img src="service4.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" style="--i:1" class="fas fa-heart"></a>
+                        <a href="#" style="--i:2" class="fas fa-share"></a>
+                        <a href="#" style="--i:3" class="fas fa-comment"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- lightbox start -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-close">&times</div>
+            <img src="project2.jpg" alt="" class="lightbox-img">
+        </div>
+        <div class="lightbox-control">
+            <div class="prev" onclick="prevSlide()"><i class="fa fa-angle-left"></i></div>
+            <div class="next" onclick="nextSlide()"><i class="fa fa-angle-right"></i></div>
+        </div>
+    </div>
+</body>
+<script>
+//light box
+const lightBox = document.querySelector('.lightbox'),
+itemBox = document.querySelectorAll('.thumbnail'),
+totalItemBox = itemBox.length;
+let lightBoxImage = lightBox.querySelector('.lightbox-img');
+let itemIndex = 0;
+
+for(let i = 0; i < totalItemBox; i++){
+    itemBox[i].addEventListener('click', () => {
+        itemIndex = i;
+        changeImage();
+        toggleLightBox();
+    })
+}
+const nextSlide = () =>{
+    if(itemIndex === totalItemBox - 1){
+        itemIndex = 0;
+    }else{
+        itemIndex++;
+    }
+    changeImage();
+}
+const prevSlide = () =>{
+    if(itemIndex === 0){
+        totalItemBox - 1;
+    }else{
+        itemIndex--;
+    }
+    changeImage();
+}
+const toggleLightBox = () =>{
+    lightBox.classList.toggle('open')
+}
+const changeImage = () =>{
+    imgSrc = itemBox[itemIndex].querySelector('img').getAttribute('src');
+    lightBoxImage.src = imgSrc;
+}
+//closing lightbox
+const closelightBox = document.querySelector('.lightbox-close');
+lightBox.addEventListener('click', (e) => {
+    if(e.target === closelightBox){
+        toggleLightBox();
+    }
+})
+</script>
+</html>

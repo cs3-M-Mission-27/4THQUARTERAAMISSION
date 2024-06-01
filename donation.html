@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Us! - EcoPolicies</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="donation.css">
+</head>
+<body>
+<!-- donate page -->
+<section class="donate" id="donate">
+    <h1 class="heading"> <i class="fas fa-quote-left"></i> Donation for a Cause <i class="fas fa-quote-right"></i></h1>
+    <div class="video-container">
+        <video src="bglf.mp4" loop autoplay muted></video>
+    </div>
+    <p class="sub-subhead">Penguins Are Suffering From Habitat Loss, Food Shortages Due To Warming Oceans, And Increased Vulnerability To Extreme Weather Events, <br> Which Underscores The Urgency Of Our Efforts To Protect Them From Climate Change.</p>
+    <div class="form-container">
+        <form id="donation-form">
+            <div class="inputBox">
+                <input type="text" pattern="[A-Za-z\s]+" title="Only alphabetic characters and spaces are allowed" placeholder="First Name" required>
+                <input type="text" pattern="[A-Za-z\s]+" title="Only alphabetic characters and spaces are allowed" placeholder="Last Name" required>
+            </div>
+            <div class="inputBox">
+                <input type="email" placeholder="Enter Your Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                <select name="donation-amount" id="donation-amount" required>
+                    <option value="" selected disabled>Donation Amount</option>
+                    <option value="$5">$5</option>
+                    <option value="$10">$10</option>
+                    <option value="$15">$15</option>
+                    <option value="$20">$20</option>
+                </select>
+            </div>
+            <textarea name="message" id="message" cols="15" rows="8" placeholder="Message Here! (optional)"></textarea>
+            <input type="submit" class="btn" value="Donate">
+        </form>
+    </div>
+
+    <!-- Popup for Thank You Message -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <img src="penguin.png" alt="Penguin Icon" class="penguin-icon">
+            <i class="fas fa-heart heart-icon"></i>
+            <p class="popup-message" id="popup-message"></p>
+        </div>
+    </div>
+</section>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('donation-form');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('close-btn');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const firstName = form.querySelector('input[type="text"][placeholder="First Name"]').value;
+        const lastName = form.querySelector('input[type="text"][placeholder="Last Name"]').value;
+        const fullName = firstName + ' ' + lastName;
+
+        document.getElementById('popup-message').innerHTML = `Thank you, ${fullName}, for your generous contribution! Your support means the world to us and helps penguins thrive.`;
+        popup.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+});
+</script>
+</html>
+    
